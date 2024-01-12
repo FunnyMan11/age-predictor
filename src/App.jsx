@@ -10,7 +10,7 @@ function App() {
   const fetchData = () => {
     axios.get(`https://api.agify.io?name=${name}`)
       .then((res) => {
-        setAge(res.data.age);
+         setAge(res.data);
       })
       .catch(err => console.log(err));
   };
@@ -31,8 +31,9 @@ function App() {
       />
       <br />
       <button onClick={fetchData}>Predict age</button>
-      <h1>Predicted age: {age}</h1>
-
+      <h1>Inputed name:  {age.name}</h1>
+      <h1>Predicted age: {age.age}</h1>
+      <h1>Count : {age.count}</h1>
     </div>
   );
 }
